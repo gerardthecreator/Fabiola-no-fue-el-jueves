@@ -1,0 +1,152 @@
+/* =========================================
+   VISTA_CELULAR.CSS - Optimización Móvil (≤ 540px)
+   ========================================= */
+
+/* Este archivo contiene ajustes finos de usabilidad y estética 
+   específicamente para la vista de celular solicitada. */
+
+@media screen and (max-width: 540px) {
+
+    /* 1. PREVENCIÓN DE DESBORDAMIENTO HORIZONTAL */
+    html, body {
+        overflow-x: hidden; /* Vital para evitar scroll lateral indeseado */
+        width: 100%;
+        -webkit-text-size-adjust: 100%; /* Evita que iOS cambie el tamaño del texto */
+    }
+
+    /* 2. OPTIMIZACIÓN DE TIPOGRAFÍA PARA LECTURA EN MÓVIL */
+    p, li, .explanation-text {
+        font-size: 1.05rem; /* Ligeramente más grande para leer sin zoom */
+        line-height: 1.5;
+        text-align: left; /* Justificado puede crear ríos blancos en móviles */
+    }
+
+    /* 3. AJUSTES DE NAVEGACIÓN (ESTILO APP) */
+    .navigation {
+        position: sticky; /* Navegación pegajosa opcional si se desea */
+        top: 0;
+        z-index: 100;
+        background: rgba(0, 82, 212, 0.95); /* Fondo sólido para legibilidad */
+        padding: 10px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav-btn {
+        margin-bottom: 5px;
+        border-radius: 8px;
+        font-size: 1rem;
+        padding: 12px; /* Área táctil más grande */
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-btn.active {
+        background: var(--white);
+        color: var(--royal-blue);
+        font-weight: 700;
+    }
+
+    /* 4. MANEJO DE FÓRMULAS MATEMÁTICAS (MATHJAX) */
+    /* Esto es crítico: las fórmulas largas rompen el diseño móvil si no se controlan */
+    mjx-container {
+        max-width: 100vw; /* Ancho máximo de la ventana */
+        overflow-x: auto !important; /* Scroll horizontal permitido */
+        overflow-y: hidden;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+        display: flex !important;
+        justify-content: center; /* Centrar fórmulas cortas */
+    }
+    
+    /* Asegurar que el scroll de la fórmula no mueva toda la página */
+    .step-formula {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 5. CONTROLES DE ANIMACIÓN - ERGONOMÍA */
+    .controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas */
+        grid-template-rows: auto auto;
+        gap: 10px;
+    }
+
+    /* El botón de Play/Pausa ocupa todo el ancho abajo para fácil acceso con el pulgar */
+    #btn-play-1, #btn-play-2, #btn-play-3 {
+        grid-column: 1 / -1; /* Ocupa ambas columnas */
+        grid-row: 2;
+        background: linear-gradient(to right, var(--royal-blue), var(--light-blue));
+        padding: 15px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    #btn-prev-1, #btn-prev-2, #btn-prev-3,
+    #btn-next-1, #btn-next-2, #btn-next-3 {
+        padding: 12px;
+        background: #555; /* Color neutro para controles secundarios */
+    }
+
+    /* 6. VISUALIZACIÓN DE DATOS EN CANVAS */
+    .canvas-overlay-data {
+        font-size: 0.75rem;
+        padding: 5px;
+        top: 5px;
+        left: 5px;
+        background: rgba(255, 255, 255, 0.9);
+        max-width: 120px; /* Limitar ancho para no tapar la animación */
+    }
+
+    .data-display {
+        font-size: 0.8rem;
+        background: #000;
+        border: 1px solid #333;
+    }
+
+    /* 7. TARJETAS DE PASOS Y EXPLICACIONES */
+    .step-box {
+        padding: 15px 10px; /* Menos padding lateral */
+        border-radius: 6px;
+        border: none;
+        border-top: 4px solid var(--light-blue); /* Borde visual superior */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .step-title {
+        font-size: 1.2rem;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+    }
+
+    /* El bloque "Por qué" */
+    .explanation-block {
+        background-color: #f0f4f8;
+        border-left: 3px solid var(--royal-blue);
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .explanation-block::before {
+        font-size: 0.9rem;
+        content: "💡 ¿Por qué?"; /* Texto más corto para móvil */
+    }
+
+    /* 8. RESULTADOS FINALES */
+    .final-answer-box {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    
+    .final-value {
+        font-size: 1.8rem;
+        word-wrap: break-word;
+    }
+
+    /* 9. PIE DE PÁGINA */
+    footer {
+        padding-bottom: 80px; /* Espacio extra si hay barra de navegación del navegador */
+    }
+}

@@ -1,0 +1,212 @@
+/* =========================================
+   DISEÑO.CSS - Estética y Detalles Visuales
+   ========================================= */
+
+/* 1. Personalización del Scrollbar (Barra de desplazamiento) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-silver); 
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--royal-blue), var(--light-blue)); 
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--royal-blue); 
+}
+
+/* 2. Selección de Texto */
+::selection {
+    background: var(--royal-blue);
+    color: var(--white);
+}
+
+/* =========================================
+   ESTILOS PARA FÓRMULAS Y MATEMÁTICAS
+   ========================================= */
+/* Contenedor para fórmulas MathJax para que resalten */
+mjx-container {
+    font-size: 1.15rem !important;
+    color: var(--royal-blue) !important;
+    padding: 5px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Estilo para variables en línea dentro del texto (ej: "la velocidad v") */
+.math-variable {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: bold;
+    color: var(--royal-blue);
+    padding: 0 2px;
+}
+
+/* =========================================
+   BLOQUES DE EXPLICACIÓN (EL PORQUÉ)
+   ========================================= */
+/* Estos estilos son vitales para la parte de "explicando cada cosa y su porqué" */
+
+.explanation-block {
+    background-color: rgba(224, 234, 252, 0.4); /* Light Silver transparente */
+    border-left: 4px solid var(--light-blue);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 1rem;
+    position: relative;
+}
+
+.explanation-block::before {
+    content: "💡 Razonamiento:";
+    display: block;
+    font-family: var(--font-title);
+    color: var(--royal-blue);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.explanation-text {
+    color: #444;
+    font-weight: 300;
+    text-align: justify;
+}
+
+/* =========================================
+   ESTILOS DE RESULTADOS Y CIFRAS
+   ========================================= */
+.final-answer-box {
+    background: linear-gradient(135deg, var(--royal-blue), var(--light-blue));
+    color: var(--white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 82, 212, 0.3);
+    border: 2px solid var(--white);
+}
+
+.final-answer-box h4 {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.final-value {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Etiqueta para cifras significativas */
+.sig-figs-note {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* =========================================
+   ELEMENTOS DECORATIVOS DE ANIMACIÓN
+   ========================================= */
+/* Overlay para datos en el canvas */
+.canvas-overlay-data {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--royal-blue);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--royal-blue);
+    pointer-events: none; /* Click through */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Botones de control con estilo "Neumorphism" suave */
+.controls .ctrl-btn {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-bottom: 3px solid #003c9e; /* Sombra dura para efecto 3D */
+    transition: all 0.1s;
+}
+
+.controls .ctrl-btn:active {
+    transform: translateY(2px);
+    border-bottom: 0px solid transparent;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   TARJETAS DE TEORÍA
+   ========================================= */
+.theory-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-top: 5px solid var(--royal-blue);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+}
+
+.theory-title {
+    font-family: var(--font-title);
+    color: var(--royal-blue);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.formula-highlight {
+    background: var(--light-silver);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px dashed var(--royal-blue);
+    margin: 1rem 0;
+}
+
+/* =========================================
+   LISTAS Y PASOS
+   ========================================= */
+/* Estilo para listas dentro de los enunciados */
+.problem-statement ul li {
+    list-style-type: none;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+}
+
+.problem-statement ul li::before {
+    content: "➤";
+    position: absolute;
+    left: 0;
+    color: var(--light-blue);
+    font-size: 0.9rem;
+}
+
+/* Separador visual entre pasos */
+.step-separator {
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--light-silver), transparent);
+    margin: 2rem 0;
+    width: 100%;
+}

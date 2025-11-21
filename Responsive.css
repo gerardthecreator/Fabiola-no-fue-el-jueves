@@ -1,0 +1,197 @@
+/* =========================================
+   RESPONSIVE.CSS - Adaptabilidad
+   ========================================= */
+
+/* 
+   NOTA: Este archivo trabaja en conjunto con Vista_celular.css.
+   Aquí definimos los breakpoints estructurales generales.
+*/
+
+/* =========================================
+   TABLETS Y PANTALLAS MEDIANAS (Hasta 900px)
+   ========================================= */
+@media screen and (max-width: 900px) {
+    .content-wrapper {
+        padding: 0 1rem 2rem 1rem;
+        width: 100%;
+    }
+
+    .main-header h1 {
+        font-size: 2.8rem;
+    }
+
+    .nav-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* =========================================
+   DISPOSITIVOS MÓVILES (≤ 540px) - REQUISITO PRINCIPAL
+   ========================================= */
+@media screen and (max-width: 540px) {
+
+    /* 1. Ajustes Generales del Cuerpo */
+    body {
+        font-size: 16px; /* Base legible */
+    }
+
+    .content-wrapper {
+        padding: 0 0.5rem 3rem 0.5rem; /* Márgenes mínimos para aprovechar espacio */
+        margin: 0;
+        width: 100%;
+    }
+
+    /* 2. Encabezado Compacto */
+    .main-header {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .main-header h1 {
+        font-size: 2rem; /* Reducción drástica para evitar desbordes */
+        line-height: 1.1;
+    }
+
+    .main-header .subtitle {
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+    }
+
+    /* 3. Navegación Apilable (Touch Friendly) */
+    .navigation {
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+        flex-direction: column; /* Botones uno debajo del otro */
+        width: 100%;
+    }
+
+    .nav-btn {
+        width: 100%; /* Botón ancho completo para fácil toque */
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-radius: 8px; /* Menos redondeado para parecer más bloque */
+    }
+
+    /* 4. Contenedores de Contenido */
+    .tab-content {
+        padding: 1rem; /* Menos padding interno */
+        border-radius: 8px;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    /* 5. Enunciados y Teoría */
+    .problem-statement, .theory-container {
+        padding: 1rem;
+        font-size: 1rem;
+        border-left-width: 3px; /* Borde más delgado */
+    }
+
+    /* 6. Área de Animación (Canvas) */
+    .animation-wrapper {
+        padding: 0.5rem;
+        border: 1px solid var(--light-silver);
+    }
+
+    .canvas-container {
+        height: 280px; /* Altura reducida para que quepa en pantallas verticales */
+    }
+
+    /* Controles de Animación */
+    .controls {
+        flex-wrap: wrap; /* Permitir que los botones bajen si no caben */
+        gap: 0.5rem;
+    }
+
+    .ctrl-btn {
+        flex: 1 1 100%; /* Botones ocupan todo el ancho en móvil */
+        padding: 0.8rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .data-display {
+        font-size: 0.75rem; /* Texto de datos más pequeño */
+        flex-direction: column; /* Datos en lista vertical */
+        align-items: center;
+        gap: 5px;
+    }
+
+    /* 7. Solución Paso a Paso */
+    .step-box {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .step-title {
+        font-size: 1.3rem;
+        flex-direction: column; /* Icono arriba, texto abajo si es largo */
+        align-items: flex-start;
+    }
+
+    .step-title::before {
+        margin-bottom: 5px;
+    }
+
+    /* Fórmulas Matemáticas (MathJax) */
+    mjx-container {
+        font-size: 1rem !important; /* Reducir tamaño de fuente matemática */
+        overflow-x: auto; /* Scroll horizontal obligatorio */
+        max-width: 100%;
+        display: block;
+    }
+
+    .step-formula {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    /* 8. Bloques de Explicación ("El Porqué") */
+    .explanation-block {
+        margin: 0.8rem 0;
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    /* 9. Resultado Final */
+    .final-answer-box {
+        padding: 1rem;
+    }
+
+    .final-answer-box h4 {
+        font-size: 1.2rem;
+    }
+
+    .final-value {
+        font-size: 1.5rem; /* Evitar que números largos rompan el diseño */
+        word-break: break-all;
+    }
+
+    /* 10. Footer */
+    footer {
+        padding: 1.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* =========================================
+   AJUSTES PARA PANTALLAS MUY PEQUEÑAS (≤ 360px)
+   ========================================= */
+@media screen and (max-width: 360px) {
+    .main-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .canvas-container {
+        height: 220px; /* Aún más pequeño para iPhone SE / Galaxy Fold cerrados */
+    }
+    
+    .nav-btn {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
